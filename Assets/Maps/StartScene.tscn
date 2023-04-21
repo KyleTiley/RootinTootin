@@ -1,0 +1,136 @@
+[gd_scene load_steps=12 format=3 uid="uid://re3bxf312ryu"]
+
+[ext_resource type="Texture2D" uid="uid://c307mjmykd4dd" path="res://Assets/Art/Dirt Dark.png" id="1"]
+[ext_resource type="PackedScene" path="res://Assets/Node2D.tscn" id="2"]
+[ext_resource type="TileSet" path="res://Assets/Maps/roots.tres" id="3"]
+[ext_resource type="Script" path="res://Regions/Camera2DHelper.gd" id="4"]
+[ext_resource type="PackedScene" path="res://Characters/Player.tscn" id="5"]
+[ext_resource type="Shader" path="res://Assets/CRT_Shader.tres" id="6"]
+[ext_resource type="Script" path="res://Assets/Maps/SceneChangeArea2D.gd" id="7"]
+[ext_resource type="AudioStream" uid="uid://ceogtcl0dngtv" path="res://Assets/Sound/WesternAmbiance.mp3" id="8"]
+[ext_resource type="PackedScene" path="res://Assets/Art/Sign.tscn" id="9"]
+
+[sub_resource type="ShaderMaterial" id="1"]
+shader = ExtResource("6")
+
+[sub_resource type="RectangleShape2D" id="2"]
+size = Vector2(10, 24)
+
+[node name="StartScene" type="Node2D"]
+
+[node name="Dirt2" type="Sprite2D" parent="."]
+position = Vector2(475, -121)
+texture = ExtResource("1")
+region_enabled = true
+region_rect = Rect2(0, 0, 500, 500)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("3")
+format = 2
+
+[node name="Sign" parent="." instance=ExtResource("9")]
+position = Vector2(361, -38)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Sign"]
+offset_left = -11.0
+offset_top = -15.0
+offset_right = 34.0
+offset_bottom = 2.0
+text = "BAR"
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 335.0
+offset_top = -205.0
+offset_right = 625.0
+offset_bottom = -115.0
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 285.0
+offset_bottom = 86.0
+color = Color(0.14902, 0.168627, 0.266667, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 7.0
+offset_right = 288.0
+offset_bottom = 83.0
+text = "\" I'm so tired of drinkin' nothin' but Roots root beer all day long, it gives me gas!
+
+I need to find somethin' else to drink... maybe the bar up top has some water. \""
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_left = 409.0
+offset_top = -112.0
+offset_right = 622.0
+offset_bottom = -82.0
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect3"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 209.0
+offset_bottom = 25.0
+color = Color(0.14902, 0.168627, 0.266667, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect3"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 288.0
+offset_bottom = 83.0
+text = "A and D to move left and right
+"
+
+[node name="Ranch" parent="." instance=ExtResource("2")]
+position = Vector2(572, -48)
+
+[node name="Player" parent="." instance=ExtResource("5")]
+position = Vector2(450, -30)
+
+[node name="CRTShader" type="Node2D" parent="."]
+position = Vector2(480, -30)
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CRTShader"]
+material = SubResource("1")
+offset_left = -160.0
+offset_top = -120.0
+offset_right = 160.0
+offset_bottom = 120.0
+
+[node name="SubViewport" type="SubViewport" parent="CRTShader/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(320, 240)
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(480, -30)
+limit_left = 320
+limit_right = 640
+limit_bottom = 0
+position_smoothing_speed = 10.0
+script = ExtResource("4")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Camera2D"]
+remote_path = NodePath("../../CRTShader")
+
+[node name="SceneChangeArea2D" type="Area2D" parent="."]
+script = ExtResource("7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneChangeArea2D"]
+position = Vector2(312, -40)
+shape = SubResource("2")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8")
+volume_db = -10.0
+autoplay = true
+
+[node name="TimerText" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="body_entered" from="SceneChangeArea2D" to="SceneChangeArea2D" method="_on_SceneChangeArea2D_body_entered"]

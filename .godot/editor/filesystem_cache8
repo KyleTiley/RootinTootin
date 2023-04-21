@@ -1,0 +1,55 @@
+2a60927148abd1d33b818b535e306557
+::res://::1678207334
+default_env.tres::Environment::-1::1678207325::0::1::::<><>::
+export_presets.cfg::TextFile::-1::1678018869::0::1::::<><>::
+icon.png::CompressedTexture2D::5986679283636315171::1672047313::1678207335::1::::<><>::
+::res://Assets/::1678018507
+CRT_Shader.tres::Shader::-1::1678207325::0::1::::<><>::
+Node2D.tscn::PackedScene::-1::1678207325::0::1::::<><>::res://Assets/Art/Ranch.png
+Rock.gd::GDScript::-1::1678207325::0::1::::<>Node2D<>::
+Rock.tscn::PackedScene::-1::1678207325::0::1::::<><>::res://Assets/Art/Rock.png<>res://Assets/Rock.gd<>res://Assets/Sound/crumble.mp3
+RootBeer.gd::GDScript::-1::1678207325::0::1::::<>Node2D<>::
+RootBeer.tscn::PackedScene::-1::1678207325::0::1::::<><>::res://Assets/Art/RootBeer.png<>res://Assets/RootBeer.gd
+::res://Assets/Art/::1675610807
+Cobble.png::CompressedTexture2D::3470362107633094340::1675445892::1678207335::1::::<><>::
+Dirt Dark.png::CompressedTexture2D::6791703298749758229::1675436877::1678207335::1::::<><>::
+Dirt.png::CompressedTexture2D::1227787766437492532::1675608331::1678207335::1::::<><>::
+Ranch.png::CompressedTexture2D::3615198756822233238::1675586648::1678207335::1::::<><>::
+Rock.png::CompressedTexture2D::5221590373791589400::1675531350::1678207335::1::::<><>::
+RootBeer.png::CompressedTexture2D::621753726021120686::1675276134::1678207335::1::::<><>::
+Roots.png::CompressedTexture2D::7660975504753479667::1675510526::1678207335::1::::<><>::
+Sand.png::CompressedTexture2D::4857321539199325455::1675610793::1678207335::1::::<><>::
+Sign.png::CompressedTexture2D::7043791438431511806::1675601285::1678207335::1::::<><>::
+Sign.tscn::PackedScene::-1::1678207325::0::1::::<><>::res://Assets/Art/Sign.png
+Thorns.png::CompressedTexture2D::1683451926866704696::1675547940::1678207335::1::::<><>::
+Tree.png::CompressedTexture2D::5905435295579613037::1675608024::1678207335::1::::<><>::
+::res://Assets/Character Art/::1675270448
+Double Jump (32x32).png::CompressedTexture2D::2775304556076745641::1675270378::1678207335::1::::<><>::
+Fall (32x32).png::CompressedTexture2D::6846601607304915296::1675268300::1678207335::1::::<><>::
+Idle (32x32).png::CompressedTexture2D::8097478704911525620::1675251374::1678207335::1::::<><>::
+Jump (32x32).png::CompressedTexture2D::8774305478393593729::1675268043::1678207335::1::::<><>::
+Run (32x32).png::CompressedTexture2D::8897448406332638034::1675267570::1678207335::1::::<><>::
+::res://Assets/Maps/::1678018604
+roots.tres::TileSet::-1::1678207325::0::1::::<><>::res://Assets/Art/Roots.png<>res://Assets/Art/Sand.png<>res://Assets/Art/Cobble.png<>res://Assets/Art/Thorns.png
+SceneChangeArea2D.gd::GDScript::-1::1678207325::0::1::::<>Area2D<>::
+StartScene.tscn::PackedScene::-1::1678207325::0::1::::<><>::res://Assets/Art/Dirt Dark.png<>res://Assets/Node2D.tscn<>res://Assets/Maps/roots.tres<>res://Regions/Camera2DHelper.gd<>res://Characters/Player.tscn<>res://Assets/CRT_Shader.tres<>res://Assets/Maps/SceneChangeArea2D.gd<>res://Assets/Sound/WesternAmbiance.mp3<>res://Assets/Art/Sign.tscn
+::res://Assets/Sound/::1675598518
+crumble.mp3::AudioStreamMP3::6855858507284316374::1675597445::1678207335::1::::<><>::
+saloonTune.mp3::AudioStreamMP3::5866530123331228349::1675597758::1678207335::1::::<><>::
+toot.mp3::AudioStreamMP3::6065723148211942313::1675597130::1678207335::1::::<><>::
+WesternAmbiance.mp3::AudioStreamMP3::5082896385715922347::1675598501::1678207335::1::::<><>::
+::res://Characters/::1675611243
+Player.gd::GDScript::-1::1678207325::0::1::::<>CharacterBody2D<>::
+Player.tscn::PackedScene::-1::1678207325::0::1::::<><>::res://Assets/Sound/toot.mp3<>res://Assets/Character Art/Fall (32x32).png<>res://Assets/Character Art/Double Jump (32x32).png<>res://Assets/Character Art/Jump (32x32).png<>res://Assets/Character Art/Run (32x32).png<>res://Assets/Character Art/Idle (32x32).png<>res://Characters/Player.gd<>res://Characters/StateLabel.gd
+StateLabel.gd::GDScript::-1::1678207325::0::1::::<>Label<>::
+::res://Regions/::1675619772
+Camera2DHelper.gd::GDScript::-1::1678207325::0::1::::<>Camera2D<>::
+DeadZone.gd::GDScript::-1::1678207325::0::1::::<>Area2D<>::
+Game.tscn::PackedScene::-1::1678207325::0::1::::<><>::res://Regions/Prefab1.tscn<>res://Characters/Player.tscn<>res://Assets/Rock.tscn<>res://Assets/RootBeer.tscn<>res://Assets/CRT_Shader.tres<>res://Assets/Sound/saloonTune.mp3<>res://Regions/Camera2DHelper.gd<>res://Regions/TimerScript.gd<>res://Regions/StartTrigger.gd<>res://Regions/StopArea2D.gd
+Prefab1.tscn::PackedScene::-1::1678207325::0::1::::<><>::res://Assets/Maps/roots.tres<>res://Assets/Art/Dirt Dark.png<>res://Assets/Node2D.tscn<>res://Assets/Art/Tree.png<>res://Assets/Art/Dirt.png
+StartTrigger.gd::GDScript::-1::1678207325::0::1::::<>Area2D<>::
+StopArea2D.gd::GDScript::-1::1678207325::0::1::::<>Area2D<>::
+TimerScript.gd::GDScript::-1::1678207325::0::1::::<>RichTextLabel<>::
+::res://Singleton/::1675332471
+GameSettings.gd::GDScript::-1::1678207325::0::1::::<>Node<>::
+GameSettings.tscn::PackedScene::-1::1678207325::0::1::::<><>::res://Singleton/GameSettings.gd
